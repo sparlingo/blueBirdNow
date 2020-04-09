@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import groq from 'groq'
 
-import client from '../sanityClient'
-import Oops from '../components/Oops'
+import client from '../utils/sanityClient'
 
 const Home = (props) => {
   const { posts = [] } = props

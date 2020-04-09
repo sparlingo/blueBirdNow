@@ -6,6 +6,9 @@ const Nav = () => (
       <Link href="/">
         <button className="btn btn-link text-bold">Home</button>
       </Link>
+      <Link href="/api/login">
+        <button className="btn btn-link text-bold">Login</button>
+      </Link>
     </section>
   </header>
 )
