@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
 
-import Nav from './Nav'
-
 class Header extends Component {
   state = { loading: false }
 
@@ -32,13 +30,10 @@ class Header extends Component {
           <link rel="icon" href="/_next/public/icon_192x192.ico" />
           {/* <link rel="stylesheet" href="/_next/static/style.css" /> */}
         </Head>
-        <Loader loading={this.state.loading} />
-        <Nav />
       </div>
     )
   }
 }
 
-const Loader = ({ loading }) => <div className={loading ? 'loading-show' : ''} id="loader-bar" />
 
 export default Header

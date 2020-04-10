@@ -2,25 +2,16 @@ const withCSS = require('@zeit/next-css')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const nextWorkboxPlugin = require('next-workbox-webpack-plugin')
 const path = require('path')
+const dotenv = require('dotenv');
+const withPurgeCss = require('next-purgecss')
 
-module.exports = withCSS({
+dotenv.config()
+
+module.exports = withCSS(withPurgeCss({
   webpack(config, { isServer, buildId, dev }) {
     config.node = {
       fs: 'empty'
     }
-
-    // if (!isServer) {
-    //   config.module.rules.use({
-    //     loader: 'css-purify-webpack-loader',
-    //     options: {
-    //       includes: [
-    //         './pages/*.js',
-    //         './components/*.js'
-    //       ]
-    //     }
-    //   })
-    // }
-    
 
     const workboxOptions = {
       clientsClaim: true,
@@ -94,4 +85,17 @@ module.exports = withCSS({
 
     return config
   }
-})
+},
+{
+  env: {
+    AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+    AUTH0_CLIENTID: process.env.AUTH0_CLIENTID,
+    AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
+    AUTH0_SCOPE: 'openid profile',
+    REDIRECT_URI: process.env.REDIRECT_URI || 'http://localhost:3000/api/callback',
+    POST_LOGOUT_REDIRECT_URI: process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000/',
+    COOKIE_SECRET: process.env.COOKIE_SECRET,
+    SESSION_COOKIE_LIFETIME: 7200 // 2 hours
+  }
+}
+))

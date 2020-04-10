@@ -12,6 +12,7 @@
 /.next/
 /out/
 !public/
+/static
 
 # production
 /build

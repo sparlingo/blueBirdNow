@@ -1,35 +1,18 @@
-import Link from 'next/link'
-import groq from 'groq'
+import React from 'react'
 
-import client from '../utils/sanityClient'
+import Layout from '../components/Layout'
+import { useFetchUser } from '../utils/user'
 
-const Home = (props) => {
-  const { posts = [] } = props
+export default function Home() {
+  const { user, loading } = useFetchUser()
+
   return (
-    <div className="blogPosts">
-      <h1>Welcome to BBN!</h1>
-      <ul>
-        {posts.map(
-          ({ _id, title = '', slug = '', _updatedAt = '' }) => 
-            slug && (
-              <li key={_id}>
-                <Link href="/posts/[slug]" as={`/posts/${slug.current}`}>
-                  <a>{title}</a>
-                </Link>{'-'}
-                ({new Date(_updatedAt).toDateString()})
-              </li>
-            )
-        )}
-      </ul>
-    </div>
+    <Layout user={user} loading={loading}>
+      <h1>A thing</h1>
+
+      {loading && <p>Loading login info...</p>}
+
+      {user && <pre>{JSON.stringify(user, null, 2)}</pre>}
+    </Layout>
   )
 }
-
-Home.getInitialProps = async () => ({
-  posts: await client.fetch(groq`
-    *[_type == "post" && publishedAt < now()]|order(publishedAt desc)
-  `)
-})
-
-
-export default Home

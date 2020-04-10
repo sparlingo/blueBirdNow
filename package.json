@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "blue-bird-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,10 +12,9 @@
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.7",
     "@sanity/image-url": "^0.140.18",
-    "@zeit/next-css": "^1.0.1",
-    "css-purify-webpack-loader": "^1.0.1",
     "dotenv": "^8.2.0",
     "groq": "^1.149.0",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^9.3.4",
     "next-workbox-webpack-plugin": "^2.1.1",
     "react": "^16.13.1",
@@ -26,5 +25,8 @@
     "spectre.css": "^0.5.8",
     "webpack-pwa-manifest": "^4.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next-purgecss": "^4.0.0"
+  }
 }
