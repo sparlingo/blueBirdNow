@@ -29,8 +29,8 @@ class Header extends Component {
           <meta name="theme-color" content="#302ecd" />
           <title>BBN PWA</title>
           <link rel="manifest" href="/_next/static/manifest.json" />
-          <link rel="icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="/_next/static/style.css" />
+          <link rel="icon" href="/_next/public/icon_192x192.ico" />
+          {/* <link rel="stylesheet" href="/_next/static/style.css" /> */}
         </Head>
         <Loader loading={this.state.loading} />
         <Nav />

@@ -1,4 +1,4 @@
-import client from '../../sanityClient'
+import client from '../../utils/sanityClient'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 import BlockContent from '@sanity/block-content-to-react'
