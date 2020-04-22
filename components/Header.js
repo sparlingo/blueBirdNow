@@ -29,11 +29,12 @@ class Header extends Component {
           <link rel="manifest" href="/_next/static/manifest.json" />
           <link rel="icon" href="/_next/public/icon_192x192.ico" />
           {/* <link rel="stylesheet" href="/_next/static/style.css" /> */}
+          <Loader loading={this.state.loading} />
         </Head>
       </div>
     )
   }
 }
-
+const Loader = ({ loading }) => <div className={loading ? 'loading-show' : ''} id="loader-bar" />;
 
 export default Header

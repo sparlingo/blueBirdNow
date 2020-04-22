@@ -8,7 +8,12 @@ export default function Home() {
 
   return (
     <Layout user={user} loading={loading}>
-      <h1>A thing</h1>
+      <div className="hero hero-lg bg-primary">
+        <div className="hero-body">
+          <h1>Hero title</h1>
+          <p>This is a hero example</p>
+        </div>
+      </div>
 
       {loading && <p>Loading login info...</p>}
 
